@@ -10,7 +10,7 @@ resource "openstack_networking_network_v2" "network_terraform" {
 resource "openstack_networking_router_v2" "router_terraform" {
   region = "nova"
   name = "router_terraform"
-  external_gateway = "cd1b3ee4-9278-43ed-8c74-96c00a2fe991"
+  external_gateway = "fdb92e61-75e4-47ef-9b74-557af5b6147d"
 }
 
 resource "openstack_networking_subnet_v2" "subnet_terraform" {
@@ -53,14 +53,14 @@ resource "openstack_networking_port_v2" "port_terraform" {
 
 resource "openstack_networking_floatingip_v2" "floatip_terraform" {
   region = "nova"
-  pool = "Ext-VMwareInterconnect"
+  pool = "ext-net"
   port_id = "${openstack_networking_port_v2.port_terraform.id}"
 }
 
 resource "openstack_compute_instance_v2" "instance_terraform" {
   name = "instance_terraform"
-  image_id = "8ac317da-0714-4a45-828e-9099112038db"
-  flavor_id = "38964450-0670-4d44-82db-90d64d6cbea9"
+  image_id = "ea6a36cb-cd90-4709-8e04-d72c590d6bf0"
+  flavor_id = "2"
   network {
     port = "${openstack_networking_port_v2.port_terraform.id}"
   }
