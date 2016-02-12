@@ -5,10 +5,9 @@ resource "openstack_compute_instance_v2" "web_server" {
   name = "web_server"
   image_name = "${var.image}"
   flavor_name = "${var.flavor}"
-  key_pair = "${openstack_compute_keypair_v2.web_key_pair.name}"
-  security_groups = [ "${openstack_compute_secgroup_v2.websg.name}" ]
+  key_pair = "${openstack_compute_keypair_v2.app_key_pair.name}"
   network {
-    uuid = "${openstack_networking_network_v2.web_network.id}"
+    port = "${openstack_networking_port_v2.port_web_server.id}"
   }
 }
 
@@ -19,7 +18,7 @@ resource "openstack_compute_instance_v2" "app_server" {
   key_pair = "${openstack_compute_keypair_v2.app_key_pair.name}"
   security_groups = [ "${openstack_compute_secgroup_v2.appsg.name}" ]
   network {
-    uuid = "${openstack_networking_network_v2.app_network.id}"
+    port = "${openstack_networking_port_v2.port_app_server.id}"
   }
 }
 
@@ -27,9 +26,8 @@ resource "openstack_compute_instance_v2" "dba_server" {
   name = "dba_server"
   image_name = "${var.image}"
   flavor_name = "${var.flavor}"
-  key_pair = "${openstack_compute_keypair_v2.dba_key_pair.name}"
-  security_groups = [ "${openstack_compute_secgroup_v2.dbsg.name}" ]
+  key_pair = "${openstack_compute_keypair_v2.app_key_pair.name}"
   network {
-    uuid = "${openstack_networking_network_v2.db_network.id}"
+    port = "${openstack_networking_port_v2.port_db_server.id}"
   }
 }
