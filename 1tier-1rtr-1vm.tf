@@ -59,7 +59,7 @@ resource "openstack_networking_floatingip_v2" "floatip_terraform" {
 
 resource "openstack_compute_instance_v2" "instance_terraform" {
   name = "instance_terraform"
-  image_id = "ea6a36cb-cd90-4709-8e04-d72c590d6bf0"
+  image_id = "3667df6e-5db2-4956-abb3-67edf599d2ba"
   flavor_id = "2"
   network {
     port = "${openstack_networking_port_v2.port_terraform.id}"
