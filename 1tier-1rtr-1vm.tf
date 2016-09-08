@@ -10,7 +10,7 @@ resource "openstack_networking_network_v2" "network_terraform" {
 resource "openstack_networking_router_v2" "router_terraform" {
   region = "nova"
   name = "router_terraform"
-  external_gateway = "fdb92e61-75e4-47ef-9b74-557af5b6147d"
+  external_gateway = "e8b5c267-7c37-4222-8a89-d91ebb80526c"
 }
 
 resource "openstack_networking_subnet_v2" "subnet_terraform" {
