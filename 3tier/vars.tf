@@ -23,7 +23,7 @@ variable "ssh_user_name" {
 }
 
 variable "external_gateway" {
-   default = "fdb92e61-75e4-47ef-9b74-557af5b6147d"
+   default = "e8b5c267-7c37-4222-8a89-d91ebb80526c"
 }
 
 variable "pool" {
